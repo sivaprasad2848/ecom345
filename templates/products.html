@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+   <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <link rel="stylesheet" href="{% static 'bst/css/bootstrap.min.css'%}"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"/>
+</head>
+<body>
+     <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h4 class="text-center text-primary">Product Section</h4>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-4">
+                <h6 class="text-center text-primary">Product Entry</h6>
+                <div class="card">
+                    <form method="post" action="/product/product_create/">
+                        {% csrf_token %}
+                    <div class="row">
+                        <div class="col-10 offset-1 mt-2">
+                                <div class="form-group">
+                                    <label for="">Product Name</label>
+                                    <input type="text" name="txtPname" placeholder="ProductName" class="form-control">
+                                </div>
+                        </div>
+                         <div class="col-10 offset-1 mt-2">
+                                <div class="form-group">
+                                    <label for="">Category</label>
+                                  <select class="form-control" name="selParent">
+                                    <option value="select" selected>--Select--</option>
+                                      {% for item in category %}
+                                     <option value="{{ item.id }}">{{ item.title}}</option>
+                                      {% endfor %}
+                                  </select>
+                                </div>
+                        </div>
+                        <div class="col-10 offset-1 mt-2">
+                                <div class="form-group">
+                                    <label for="">Unit Price</label>
+                                    <input type="number" name="txtUnitprice" class="form-control">
+                                </div>
+                        </div>
+                        <div class="col-10 offset-1 mt-2">
+                                <div class="form-group">
+                                    <label for="">Stock</label>
+                                    <input type="number" name="txtUnitprice" class="form-control">
+                                </div>
+                        </div>
+                        <div class="col-10 offset-1 mt-2">
+                                <div class="form-group">
+                                    <label for="">Description</label>
+                                   <textarea placeholder="Description" class="form-control"></textarea>
+                                </div>
+                        </div>
+                        
+                        <div class="col-10 offset-1 mt-2">
+                                <div class="form-group">
+                                    <label for="">Image</label>
+                                    <input type="file" name="filImage" class="form-control">
+                                </div>
+                        </div>
+                        <div class="col-10 offset-1">
+                            <input type="submit" value="Create" class="btn btn-dark w-100 mt-2 mb-2">
+                        </div>
+
+                    </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-8">
+                <!--Categiry Display-->
+                <table class="table">
+                <thead>
+                    <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Stock</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">UnitPrice</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Action</th>
+                    </tr>
+                </thead>
+           <tbody>
+  
+</tbody>
+
+
+                </table>
+                                <!--Category Display-->
+            </div>
+        </div>
+    </div>
+</body>
+</html>
