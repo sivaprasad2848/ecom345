@@ -21,7 +21,7 @@
             <div class="col-4">
                 <h6 class="text-center text-primary">Product Entry</h6>
                 <div class="card">
-                    <form method="post" action="/products/product_create/">
+                    <form method="post" action="/products/product_create/" enctype="multipart/form-data">
                         {% csrf_token %}
                     <div class="row">
                         <div class="col-10 offset-1 mt-2">
@@ -94,6 +94,12 @@
                     <tr>
                         <td>{{ forloop.counter }}</td>
                         <td>{{item.name}}</td>
+                        <td>{{item.name}}</td>
+                        <td>{{item.stock}}</td>
+                        <td>{{item.images}}</td>
+                        <td>{{item.price}}</td>
+                        <td>{{item.description}}</td>
+                        <td><a href="#"><i class="fa fa-pencil"></i></a>/<a href="#"><i class="fa fa-trash"></i></a></td>
                     </tr>
                     {% endfor %}
                 </tbody>
