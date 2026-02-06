@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Category</title>
     <link rel="stylesheet" href="{% static 'bst/css/bootstrap.min.css'%}"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"/>
 </head>
 <body>
     <div class="container">
@@ -78,8 +79,8 @@
 
       <!-- Action -->
       <td>
-        <a href="#">Edit</a> /
-        <a href="#">Delete</a>
+        <a href="#"><i class="fa fa-pencil"></i></a> /
+        <a href="#"><i class="fa fa-trash text-danger"></i></a>
       </td>
     </tr>
   {% endfor %}
